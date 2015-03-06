@@ -16,10 +16,8 @@ How it works
 =============
 
 - Clone git repo https://github.com/fneyron/Elasticsearch-zabbix.git and https://github.com/fneyron/pyes.git
-- Install pyes :
-		sudo python setup.py install
-- Install ES zabbix scripts
-		sudo ./setup.sh
+- Install pyes : `sudo python setup.py install`
+- Install ES zabbix scripts: `sudo ./setup.sh`
 - Create a Value Map in Zabbix Administration -> General -> Value Maping (in right dropdown menu):
 
 		ES Cluster State	
@@ -27,6 +25,12 @@ How it works
 		1 ⇒ Yellow
 		2 ⇒ Red
 - Import ESzabbix_templates.xml to zabbix server
+
+IF you have problems try this command: 
+
+		/etc/zabbix/zabbix_externalscripts/ESzabbix.py <hostname> status
+
+It should gave an array with a lot of values about ES cluster
 
 Specs
 =====
