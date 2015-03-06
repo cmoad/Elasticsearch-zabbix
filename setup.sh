@@ -17,5 +17,7 @@ then
 else
 	echo "zabbix agent directory not found please install: /etc/zabbix/zabbix_agentd.conf.d/"
 fi
+
+sudo service zabbix-agent restart
  
 	
