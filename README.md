@@ -15,18 +15,22 @@ http://www.apache.org/licenses/LICENSE-2.0.html
 How it works
 =============
 
-- Put ESzabbix.py in /etc/zabbix/zabbix_agentd.conf.d/ in the zabbix node
-
-- Put ESzabbix.userparm in the zabbix include parameters dir, in this case "/etc/zabbix/zabbix_agentd.conf.d/"
-
+- Clone git repo https://github.com/fneyron/Elasticsearch-zabbix.git and https://github.com/fneyron/pyes.git
+- Install pyes : `sudo python setup.py install`
+- Install ES zabbix scripts: `sudo ./setup.sh`
 - Create a Value Map in Zabbix Administration -> General -> Value Maping (in right dropdown menu):
 
 		ES Cluster State	
 		0 ⇒ Green
 		1 ⇒ Yellow
 		2 ⇒ Red
-
 - Import ESzabbix_templates.xml to zabbix server
+
+IF you have problems try this command: 
+
+		/etc/zabbix/zabbix_externalscripts/ESzabbix.py <hostname> status
+
+It should gave an array with a lot of values about ES cluster
 
 Specs
 =====
