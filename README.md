@@ -21,6 +21,8 @@ How it works
 
 - Import ESzabbix_templates.xml to zabbix server
 
+- Create a Value Map in Zabbix Administration -> General -> Value Maping (in right dropdown menu)
+
 Specs
 =====
 
