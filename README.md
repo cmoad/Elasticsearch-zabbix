@@ -19,9 +19,9 @@ How it works
 
 - Put ESzabbix.userparm in the zabbix include parameters dir, in this case "/opt/zabbix/agent_include"
 
-- Import ESzabbix_templates.xml to zabbix server
-
 - Create a Value Map in Zabbix Administration -> General -> Value Maping (in right dropdown menu)
+
+- Import ESzabbix_templates.xml to zabbix server
 
 Specs
 =====
