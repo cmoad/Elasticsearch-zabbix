@@ -19,7 +19,12 @@ How it works
 
 - Put ESzabbix.userparm in the zabbix include parameters dir, in this case "/etc/zabbix/zabbix_agentd.conf.d/"
 
-- Create a Value Map in Zabbix Administration -> General -> Value Maping (in right dropdown menu)
+- Create a Value Map in Zabbix Administration -> General -> Value Maping (in right dropdown menu):
+
+		ES Cluster State	
+		0 ⇒ Green
+		1 ⇒ Yellow
+		2 ⇒ Red
 
 - Import ESzabbix_templates.xml to zabbix server
 
