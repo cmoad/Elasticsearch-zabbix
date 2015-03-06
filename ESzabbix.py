@@ -31,6 +31,7 @@ if len(sys.argv) < 3:
 # Try to establish a connection to elasticsearch
 try:
     conn = ES('localhost:9200',timeout=25,default_indices=[''])
+    conn.collect_info()
 except Exception, e:
     zbx_fail()
 
@@ -82,11 +83,10 @@ if sys.argv[1] == 'cluster':
 # Mod to check if ES service is up
 elif sys.argv[1] == 'service':
     if sys.argv[2] == 'status':
-        try:
-            conn.status()
-            returnval = 1
-        except Exception, e:
-            returnval = 0
+	if conn.info['status'] == 200:
+	    returnval = 1
+	else:
+	    returnval = 0
 
 else: # Not clusterwide, check the next arg
 
