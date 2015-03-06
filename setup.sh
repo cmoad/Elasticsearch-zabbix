@@ -1,8 +1,9 @@
 #!/bin/bash
 
-if [[ ! $(pip list | grep pyes) ]]
+if [[ ! $(find /usr/local/lib/python*/dist-packages/ -name pyes -type d) ]]
 then
 	echo "Please install pyes first: git clone https://github.com/fneyron/pyes.git"
+	exit 1
 fi
 
 if [ -d /etc/zabbix/zabbix_agentd.conf.d ]
