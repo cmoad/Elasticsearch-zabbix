@@ -28,7 +28,7 @@ How it works
 
 IF you have problems try this command: 
 
-		/etc/zabbix/zabbix_externalscripts/ESzabbix.py <hostname> status
+		/etc/zabbix/zabbix_externalscripts/ESzabbix.py cluster status
 
 It should gave an array with a lot of values about ES cluster
 
