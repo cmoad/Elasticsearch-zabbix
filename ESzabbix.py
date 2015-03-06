@@ -37,7 +37,7 @@ except Exception, e:
 
 if sys.argv[1] == 'cluster':
     if sys.argv[2] in clusterkeys:
-        nodestats = conn.cluster_stats()
+        nodestats = conn.cluster.node_stats()
         subtotal = 0
         for nodename in nodestats['nodes']:
             if sys.argv[2] in indexingkeys:
@@ -90,7 +90,7 @@ elif sys.argv[1] == 'service':
 
 else: # Not clusterwide, check the next arg
 
-    nodestats = conn.cluster_stats()
+    nodestats = conn.cluster.node_stats()
     print nodestats
     for nodename in nodestats['nodes']:
         if sys.argv[1] in nodestats['nodes'][nodename]['name']:
