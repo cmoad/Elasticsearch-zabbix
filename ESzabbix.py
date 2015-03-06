@@ -34,7 +34,6 @@ try:
 except Exception, e:
     zbx_fail()
 
-
 if sys.argv[1] == 'cluster':
     if sys.argv[2] in clusterkeys:
         nodestats = conn.cluster.node_stats()
@@ -82,10 +81,7 @@ if sys.argv[1] == 'cluster':
 # Mod to check if ES service is up
 elif sys.argv[1] == 'service':
     if sys.argv[2] == 'status':
-	try: 
-	    returnval = 1 if conn.collect_info()['status'] == 200 else 0
-	except Exception, e:
-	    returnval = 0
+	returnval = 1 if conn.collect_info() else 0
 
 else: # Not clusterwide, check the next arg
 
