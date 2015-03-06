@@ -15,9 +15,9 @@ http://www.apache.org/licenses/LICENSE-2.0.html
 How it works
 =============
 
-- Put ESzabbix.py in /opt/zabbix/externalscripts/ in the zabbix node
+- Put ESzabbix.py in /etc/zabbix/zabbix_agentd.conf.d/ in the zabbix node
 
-- Put ESzabbix.userparm in the zabbix include parameters dir, in this case "/opt/zabbix/agent_include"
+- Put ESzabbix.userparm in the zabbix include parameters dir, in this case "/etc/zabbix/zabbix_agentd.conf.d/"
 
 - Create a Value Map in Zabbix Administration -> General -> Value Maping (in right dropdown menu)
 
