@@ -15,7 +15,8 @@ getkeys = ['missing_total', 'exists_total', 'current', 'time_in_millis', 'missin
 docskeys = ['count', 'deleted']
 indexingkeys = ['delete_time_in_millis', 'index_total', 'index_current', 'delete_total', 'index_time_in_millis', 'delete_current']
 storekeys = ['size_in_bytes', 'throttle_time_in_millis']
-cachekeys = ['filter_size_in_bytes', 'field_size_in_bytes', 'field_evictions']
+cachekeys = ['field_size_in_bytes', 'field_evictions']
+filerkeys = ['filter_size_in_bytes']
 clusterkeys = searchkeys + getkeys + docskeys + indexingkeys + storekeys
 returnval = None
 
@@ -105,20 +106,23 @@ else: # Not clusterwide, check the next arg
     print nodestats
     for nodename in nodestats['nodes']:
         if sys.argv[1] in nodestats['nodes'][nodename]['name']:
-            if sys.argv[2] in indexingkeys:
-                stats = nodestats['nodes'][nodename]['indices']['indexing']
-            elif sys.argv[2] in storekeys:
-                stats = nodestats['nodes'][nodename]['indices']['store']
-            elif sys.argv[2] in getkeys:
-                stats = nodestats['nodes'][nodename]['indices']['get']
-            elif sys.argv[2] in docskeys:
-                stats = nodestats['nodes'][nodename]['indices']['docs']
-            elif sys.argv[2] in searchkeys:
-                stats = nodestats['nodes'][nodename]['indices']['search']
-            elif sys.argv[2] in cachekeys:
-                stats = nodestats['nodes'][nodename]['indices']['cache']
+            # if sys.argv[2] in indexingkeys:
+            #     stats = nodestats['nodes'][nodename]['indices']['indexing']
+            # elif sys.argv[2] in storekeys:
+            #     stats = nodestats['nodes'][nodename]['indices']['store']
+            # elif sys.argv[2] in getkeys:
+            #     stats = nodestats['nodes'][nodename]['indices']['get']
+            # elif sys.argv[2] in docskeys:
+            #     stats = nodestats['nodes'][nodename]['indices']['docs']
+            # elif sys.argv[2] in searchkeys:
+            #     stats = nodestats['nodes'][nodename]['indices']['search']
+            # elif sys.argv[2] in cachekeys:
+            #     stats = nodestats['nodes'][nodename]['indices']['fielddata']
+            # elif sys.argv[2] in filerkeys:
+            #     stats = nodestats['nodes'][nodename]['indices']['filter_cache']
+            stats = nodestats['nodes'][nodename]['indices'][sys.argv[2]]
             try:
-                returnval = stats[sys.argv[2]]
+                returnval = stats[sys.argv[3]]
             except Exception, e:
                 pass
 
