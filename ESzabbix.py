@@ -91,8 +91,8 @@ elif sys.argv[1] == 'service':
             info['server']['name'] = res['name']
             info['server']['version'] = res['version']
             info['allinfo'] = res
-            info['status'] = self.indices.status()
-            info['aliases'] = self.indices.aliases()
+            info['status'] = conn.indices.status()
+            info['aliases'] = conn.indices.aliases()
             conn.info = info
             returnval = 1
         except:
