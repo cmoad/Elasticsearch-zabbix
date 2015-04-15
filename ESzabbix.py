@@ -122,9 +122,9 @@ else: # Not clusterwide, check the next arg
             #     stats = nodestats['nodes'][nodename]['indices']['fielddata']
             # elif sys.argv[2] in filerkeys:
             #     stats = nodestats['nodes'][nodename]['indices']['filter_cache']
-            stats = nodestats['nodes'][nodename]['indices'][sys.argv[2]]
             try:
-                returnval = stats[sys.argv[3]]
+                stats = nodestats['nodes'][nodename]['indices'][sys.argv[1]]
+                returnval = stats[sys.argv[2]]
             except Exception, e:
                 pass
 
