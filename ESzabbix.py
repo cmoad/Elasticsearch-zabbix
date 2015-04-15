@@ -84,18 +84,18 @@ elif sys.argv[1] == 'service':
         # returnval = 1 if conn.collect_info() else 0
         try:
             info = {}
-            res = self._send_request('GET', "/")
+            res = conn._send_request('GET', "/")
             info['server'] = {}
             info['server']['name'] = res['name']
             info['server']['version'] = res['version']
             info['allinfo'] = res
             info['status'] = self.indices.status()
             info['aliases'] = self.indices.aliases()
-            self.info = info
-            return 1
+            conn.info = info
+            returnval = 1
         except:
-            self.info = {}
-            return 0
+            conn.info = {}
+            returnval = 0
 
 else: # Not clusterwide, check the next arg
 
