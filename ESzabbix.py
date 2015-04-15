@@ -107,7 +107,7 @@ else: # Not clusterwide, check the next arg
     import socket
     thisnodename = socket.gethostname()
     for nodename in nodestats['nodes']:
-        if thishostname in nodestats['nodes'][nodename]['name']:
+        if thisnodename in nodestats['nodes'][nodename]['name']:
             # if sys.argv[2] in indexingkeys:
             #     stats = nodestats['nodes'][nodename]['indices']['indexing']
             # elif sys.argv[2] in storekeys:
