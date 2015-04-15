@@ -103,9 +103,11 @@ else: # Not clusterwide, check the next arg
 
     # nodestats = conn.cluster.node_stats()
     nodestats = conn._send_request('GET', '_nodes/stats')
-    print nodestats
+    # print nodestats
+    import socket
+    thisnodename = socket.gethostname()
     for nodename in nodestats['nodes']:
-        if sys.argv[1] in nodestats['nodes'][nodename]['name']:
+        if thishostname in nodestats['nodes'][nodename]['name']:
             # if sys.argv[2] in indexingkeys:
             #     stats = nodestats['nodes'][nodename]['indices']['indexing']
             # elif sys.argv[2] in storekeys:
