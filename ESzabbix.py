@@ -100,7 +100,8 @@ elif sys.argv[1] == 'service':
 
 else: # Not clusterwide, check the next arg
 
-    nodestats = conn.cluster.node_stats()
+    # nodestats = conn.cluster.node_stats()
+    nodestats = conn._send_request('GET', '_nodes/stats')
     print nodestats
     for nodename in nodestats['nodes']:
         if sys.argv[1] in nodestats['nodes'][nodename]['name']:
