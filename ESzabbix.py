@@ -36,7 +36,8 @@ except Exception, e:
 
 if sys.argv[1] == 'cluster':
     if sys.argv[2] in clusterkeys:
-        nodestats = conn.cluster.node_stats()
+        # nodestats = conn.cluster.node_stats()
+        nodestats = conn._send_request('GET', '_nodes/stats')
         subtotal = 0
         for nodename in nodestats['nodes']:
             if sys.argv[2] in indexingkeys:
