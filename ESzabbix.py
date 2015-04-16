@@ -90,10 +90,10 @@ elif sys.argv[1] == 'service':
             info['server'] = {}
             info['server']['name'] = res['name']
             info['server']['version'] = res['version']
-            info['allinfo'] = res
-            info['status'] = conn.indices.status()
-            info['aliases'] = conn.indices.aliases()
-            conn.info = info
+            # info['allinfo'] = res
+            # info['status'] = conn.indices.status()
+            # info['aliases'] = conn.indices.aliases()
+            # conn.info = info
             returnval = 1
         except:
             conn.info = {}
@@ -102,7 +102,7 @@ elif sys.argv[1] == 'service':
 else: # Not clusterwide, check the next arg
 
     # nodestats = conn.cluster.node_stats()
-    nodestats = conn._send_request('GET', '_nodes/stats')
+    nodestats = conn._send_request('GET', '_nodes/_local/stats')
     # print nodestats
     import socket
     thisnodename = socket.gethostname()
